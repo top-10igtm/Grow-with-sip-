@@ -75,15 +75,16 @@
             }
         };
         window.downloadApp = function() {
-    // Web2App ya jahan se APK ka link mila hai usko yahan " " ke andar dalein
-    const apkDownloadUrl = "YOUR_APK_DOWNLOAD_LINK_HERE";
+    // Web2App ka direct APK Download link set ho gaya hai
+    const apkDownloadUrl = "https://web2application.com/w2a/apk/3945518.apk?v=1791452823";
 
-    if (apkDownloadUrl && apkDownloadUrl !== "YOUR_APK_DOWNLOAD_LINK_HERE") {
+    if (apkDownloadUrl) {
         window.open(apkDownloadUrl, '_blank');
     } else {
         alert("⚠️ App Download link abhi update ho raha hai! Thodi der me try karein.");
     }
 };
+                    
         
     </script>
 
@@ -265,7 +266,9 @@
     <div class="item" onclick="window.location.href='income_details1.html'">📊 <span>Income Details</span> <span class="arrow">&gt;</span></div>
     <div class="item" onclick="window.location.href='withdrawal_details1.html'">💳 <span>Withdrawal History</span> <span class="arrow">&gt;</span></div>
     <div class="item" onclick="window.location.href='recharge_details1.html'">📱 <span>Recharge History</span> <span class="arrow">&gt;</span></div>
-    <div class="item" onclick="window.location.href='about_us1.html'">🏢 <span>About Us</span> <span class="arrow">&gt;</span></div>
+    <div class="item" onclick="window.location.href='about_us1.html'">🏢 <span>About Us</span> <span class="arrow">&gt;</span></div>  
+    <div class="item" style="color: #d32f2f;" onclick="logout()">🚪 <span>Log Out</span> <span class="arrow">&gt;</span></div>
+</div>
     <!-- Download App Button -->
 <div style="margin-top: 15px;">
     <button class="download-btn" onclick="downloadApp()">
@@ -273,8 +276,6 @@
     </button>
 </div>
     
-    <div class="item" style="color: #d32f2f;" onclick="logout()">🚪 <span>Log Out</span> <span class="arrow">&gt;</span></div>
-</div>
 
 <div class="bottom-nav">
     <div class="nav-item" onclick="window.location.href='index1.html'">📋<br>Plan</div>
