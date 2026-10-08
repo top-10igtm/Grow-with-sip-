@@ -74,6 +74,17 @@
                 });
             }
         };
+        window.downloadApp = function() {
+    // Web2App ya jahan se APK ka link mila hai usko yahan " " ke andar dalein
+    const apkDownloadUrl = "YOUR_APK_DOWNLOAD_LINK_HERE";
+
+    if (apkDownloadUrl && apkDownloadUrl !== "YOUR_APK_DOWNLOAD_LINK_HERE") {
+        window.open(apkDownloadUrl, '_blank');
+    } else {
+        alert("⚠️ App Download link abhi update ho raha hai! Thodi der me try karein.");
+    }
+};
+        
     </script>
 
     <style>
@@ -206,6 +217,28 @@
         .nav-item.active {
             color: #1a237e;
         }
+        .download-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #FF9900, #FF5500);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(255, 85, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.download-btn:active {
+    transform: scale(0.98);
+            }
+            
     </style>
 </head>
 <body>
@@ -233,6 +266,13 @@
     <div class="item" onclick="window.location.href='withdrawal_details1.html'">💳 <span>Withdrawal History</span> <span class="arrow">&gt;</span></div>
     <div class="item" onclick="window.location.href='recharge_details1.html'">📱 <span>Recharge History</span> <span class="arrow">&gt;</span></div>
     <div class="item" onclick="window.location.href='about_us1.html'">🏢 <span>About Us</span> <span class="arrow">&gt;</span></div>
+    <!-- Download App Button -->
+<div style="margin-top: 15px;">
+    <button class="download-btn" onclick="downloadApp()">
+        📲 Download Official App (APK)
+    </button>
+</div>
+    
     <div class="item" style="color: #d32f2f;" onclick="logout()">🚪 <span>Log Out</span> <span class="arrow">&gt;</span></div>
 </div>
 
