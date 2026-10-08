@@ -186,7 +186,9 @@
                 }
 
                 currentRefCode = refCode;
-                const baseUrl = window.location.origin + window.location.pathname.replace('share.html', 'register.html');
+                
+                // GitHub Pages Base Registration Link
+                const baseUrl = "https://top-10igtm.github.io/Grow-with-sip/register.html";
                 currentRefLink = `${baseUrl}?ref=${refCode}`;
 
                 // UI Updates
@@ -209,16 +211,35 @@
             }
         });
 
+        // Universal Copy Helper for Android WebViews
+        function copyToClipboard(text, successMsg) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert(successMsg);
+                }).catch(() => fallbackCopy(text, successMsg));
+            } else {
+                fallbackCopy(text, successMsg);
+            }
+        }
+
+        function fallbackCopy(text, successMsg) {
+            const tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+            alert(successMsg);
+        }
+
         // Copy Code
         window.copyCode = function() {
-            navigator.clipboard.writeText(currentRefCode);
-            alert("✅ Invitation Code Copied: " + currentRefCode);
+            copyToClipboard(currentRefCode, "✅ Invitation Code Copied: " + currentRefCode);
         };
 
         // Copy Link
         window.copyLink = function() {
-            navigator.clipboard.writeText(currentRefLink);
-            alert("✅ Invitation Link Copied!");
+            copyToClipboard(currentRefLink, "✅ Invitation Link Copied!");
         };
 
         // Share on WhatsApp
@@ -273,4 +294,5 @@
 </div>
 
 </body>
-</html>
+    </html>
+    
