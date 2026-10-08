@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdrawal Details</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f7f6;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #004a99;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .withdrawal-item {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        .back-btn {
+            display: block;
+            margin-top: 20px;
+            padding: 10px;
+            background: #004a99;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Withdrawal History</h1>
+
+    <div id="withdrawalList">
+        कोई विथड्रॉल रिकॉर्ड नहीं है।
+    </div>
+
+    <a href="my_profile.html" class="back-btn">
+        वापस जाएं
+    </a>
+
+</div>
+
+
+<script>
+
+    let listDiv = document.getElementById('withdrawalList');
+
+    let currentUserId =
+        localStorage.getItem('loggedInUserId');
+
+
+    if (!currentUserId) {
+
+        listDiv.innerHTML =
+            "<p style='text-align:center;'>कृपया पहले लॉगिन करें।</p>";
+
+    } else {
+
+        /*
+            Firebase हटाया गया है।
+
+            अभी withdrawal history automatically
+            load नहीं होगी।
+
+            बाद में नया database/data system
+            यहां लगाया जाएगा।
+        */
+
+        listDiv.innerHTML =
+            "<p style='text-align:center;'>कोई विथड्रॉल रिकॉर्ड नहीं है।</p>";
+    }
+
+</script>
+
+</body>
+</html>
