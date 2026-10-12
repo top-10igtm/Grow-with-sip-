@@ -119,17 +119,30 @@
             alert("✅ UPI ID Copied: " + upiId);
         }
 
-        // Download QR Code Function
-        window.downloadQRCode = function() {
+        // Updated Download QR Code Function (Blob Fetch Method)
+        window.downloadQRCode = async function() {
             const qrImage = document.getElementById('qr-code-img');
             const imageUrl = qrImage.src;
 
-            const link = document.createElement('a');
-            link.href = imageUrl;
-            link.download = 'Payment_QR_Code.jpg';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            try {
+                const response = await fetch(imageUrl);
+                const blob = await response.blob();
+                const blobUrl = window.URL.createObjectURL(blob);
+
+                const link = document.createElement('a');
+                link.href = blobUrl;
+                link.download = 'Payment_QR_Code.jpg';
+                document.body.appendChild(link);
+                link.click();
+                
+                document.body.removeChild(link);
+                window.URL.revokeObjectURL(blobUrl);
+                
+                alert("✅ QR Code download shuru ho gaya hai!");
+            } catch (error) {
+                console.error("Download error:", error);
+                window.open(imageUrl, '_blank');
+            }
         };
 
         // Submit Payment & Save to Firestore
